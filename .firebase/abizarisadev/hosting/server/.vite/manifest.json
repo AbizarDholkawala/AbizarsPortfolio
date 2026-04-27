@@ -1,0 +1,78 @@
+{
+  "%23tanstack-start-plugin-adapters": {
+    "file": "assets/__23tanstack-start-plugin-adapters-Cwee5PKy.js",
+    "name": "__23tanstack-start-plugin-adapters",
+    "src": "%23tanstack-start-plugin-adapters",
+    "isDynamicEntry": true
+  },
+  "D:/Coding/Revamped Porfolio/Abizar-s_Portfolio-main/Abizar-s_Portfolio-main/Abizar-s_Portfolio-main/src/styles.css": {
+    "file": "assets/styles-BxbUUPBf.css",
+    "src": "D:/Coding/Revamped Porfolio/Abizar-s_Portfolio-main/Abizar-s_Portfolio-main/Abizar-s_Portfolio-main/src/styles.css"
+  },
+  "_worker-entry-gCIx7ju7.js": {
+    "file": "assets/worker-entry-gCIx7ju7.js",
+    "name": "worker-entry",
+    "dynamicImports": [
+      "tanstack-start-manifest:v",
+      "src/router.tsx",
+      "node_modules/@tanstack/react-start/dist/plugin/default-entry/start.ts",
+      "%23tanstack-start-plugin-adapters"
+    ]
+  },
+  "node_modules/@tanstack/react-start/dist/plugin/default-entry/start.ts": {
+    "file": "assets/start-HYkvq4Ni.js",
+    "name": "start",
+    "src": "node_modules/@tanstack/react-start/dist/plugin/default-entry/start.ts",
+    "isDynamicEntry": true
+  },
+  "src/assets/logo.jpg": {
+    "file": "assets/logo-DDqaKvBe.jpg",
+    "src": "src/assets/logo.jpg"
+  },
+  "src/assets/project-portfolio.jpg": {
+    "file": "assets/logo-DDqaKvBe.jpg",
+    "src": "src/assets/logo.jpg"
+  },
+  "src/router.tsx": {
+    "file": "assets/router-CF2pcacG.js",
+    "name": "router",
+    "src": "src/router.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-gCIx7ju7.js"
+    ],
+    "dynamicImports": [
+      "src/routes/index.tsx?tsr-split=component"
+    ],
+    "assets": [
+      "assets/styles-BxbUUPBf.css"
+    ]
+  },
+  "src/routes/index.tsx?tsr-split=component": {
+    "file": "assets/index-D-mYF1iu.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "_worker-entry-gCIx7ju7.js"
+    ],
+    "assets": [
+      "assets/logo-DDqaKvBe.jpg"
+    ]
+  },
+  "tanstack-start-manifest:v": {
+    "file": "assets/_tanstack-start-manifest_v-9BfZhqtb.js",
+    "name": "_tanstack-start-manifest_v",
+    "src": "tanstack-start-manifest:v",
+    "isDynamicEntry": true
+  },
+  "virtual:cloudflare/worker-entry": {
+    "file": "index.js",
+    "name": "index",
+    "src": "virtual:cloudflare/worker-entry",
+    "isEntry": true,
+    "imports": [
+      "_worker-entry-gCIx7ju7.js"
+    ]
+  }
+}
