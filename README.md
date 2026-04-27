@@ -62,6 +62,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📫 Contact
 
-Abizar Dholkawala - [Contactsabizar@gmail.com]
+Abizar Dholkawala - Contactsabizar@gmail.com
 
 Project Link: [https://github.com/abizardholkawala/abizars-portfolio](https://github.com/abizardholkawala/abizars-portfolio)
