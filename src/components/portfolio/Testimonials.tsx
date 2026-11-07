@@ -5,7 +5,7 @@ const testimonials = [
   { name: "Kaizar", handle: "@Mustafa Trading Corporation", text: "This is hands down the best thing I've experienced. Highly recommend!", color: "from-amber-400 to-orange-500" },
   { name: "Hussain", handle: "@Honesty Brake Line", text: "I've never seen anything like this before. It's amazing. I love it.", color: "from-cyan-400 to-blue-500" },
   { name: "Juzer", handle: "@United Bearing Centre", text: "I don't know what to say. I'm speechless. This is amazing.", color: "from-yellow-400 to-amber-500" },
-  { name: "Mufaddal", handle: "@Videographer", text: "Your Website is firee!!", color: "from-rose-400 to-pink-500" },
+  { name: "Mufaddal", handle: "@Videographer", text: "Your sites are fireee!!", color: "from-rose-400 to-pink-500" },
   { name: "Zoe", handle: "@Swiftable", text: "This exceeded all my expectations. Absolutely stunning!", color: "from-emerald-400 to-teal-500" },
   { name: "Dave", handle: "@Bottleify", text: "Simply breathtaking. The best decision I've made in a while.", color: "from-violet-400 to-purple-500" },
   { name: "Emily", handle: "@Swiftable", text: "So glad I found this. It has changed the game for me.", color: "from-fuchsia-400 to-pink-500" },

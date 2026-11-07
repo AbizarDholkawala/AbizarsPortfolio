@@ -9,7 +9,7 @@ export default function Footer() {
           <a href="https://github.com/abizardholkawala" target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-foreground transition-colors"><Github size={18} /></a>
           <a href="https://www.linkedin.com/in/abizardholkawala" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-foreground transition-colors"><Linkedin size={18} /></a>
           <a href="https://www.instagram.com/dholkawalaabizar" target="_blank" rel="noreferrer" aria-label="Instagram" className="hover:text-foreground transition-colors"><Instagram size={18} /></a>
-          <a aria-label="Email" className="hover:text-foreground transition-colors font-mono text-xs">Contactsabizar@gmail.com</a>
+          <a href="mailto:contactsabizar@gmail.com" aria-label="Email" className="hover:text-foreground transition-colors font-mono text-xs">contactsabizar@gmail.com</a>
         </div>
       </div>
     </footer>

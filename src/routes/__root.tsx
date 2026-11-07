@@ -1,4 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { ReactLenis } from "lenis/react";
 
 import appCss from "../styles.css?url";
 
@@ -29,7 +30,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Abizar Dholkawala — 3D Developer & Creative Engineer" },
+      { title: "Abizar Dholkawala - Portfolio" },
       { name: "description", content: "Portfolio of Abizar Dholkawala — full-stack developer crafting immersive 3D web experiences with React, Three.js and motion." },
       { name: "author", content: "Abizar Dholkawala" },
       { property: "og:title", content: "Abizar Dholkawala — 3D Developer" },
@@ -74,5 +75,19 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.12,
+        duration: 0.9,
+        smoothWheel: true,
+        wheelMultiplier: 1.0,
+        touchMultiplier: 1.5,
+        infinite: false,
+      }}
+    >
+      <Outlet />
+    </ReactLenis>
+  );
 }

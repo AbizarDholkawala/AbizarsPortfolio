@@ -66,7 +66,11 @@ function GlowSphere() {
 
 export default function Globe() {
   return (
-    <Canvas camera={{ position: [0, 0, 2.6], fov: 45 }} dpr={[1, 2]}>
+    <Canvas
+      camera={{ position: [0, 0, 2.6], fov: 45 }}
+      dpr={[1, 1.5]}
+      gl={{ powerPreference: "high-performance" }}
+    >
       <Suspense fallback={null}>
         <ambientLight intensity={0.4} />
         <GlowSphere />

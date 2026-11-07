@@ -13,14 +13,14 @@ function DistortedOrb() {
   });
   return (
     <Float speed={1.4} rotationIntensity={0.6} floatIntensity={1.2}>
-      <Sphere ref={ref} args={[1.1, 128, 128]} position={[-1.6, 0.2, 0]}>
+      <Sphere ref={ref} args={[1.1, 64, 64]} position={[-1.6, 0.2, 0]}>
         <MeshDistortMaterial
           color="#7c3aed"
           attach="material"
-          distort={0.45}
-          speed={1.8}
-          roughness={0.1}
-          metalness={0.9}
+          distort={0.4}
+          speed={1.5}
+          roughness={0.15}
+          metalness={0.85}
           emissive="#22d3ee"
           emissiveIntensity={0.25}
         />
@@ -61,14 +61,18 @@ function FloatingShape({ position, color, geometry }: { position: [number, numbe
 
 export default function Scene3D() {
   return (
-    <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 2]}>
+    <Canvas
+      camera={{ position: [0, 0, 5], fov: 45 }}
+      dpr={[1, 1.5]}
+      gl={{ powerPreference: "high-performance", antialias: true }}
+    >
       <Suspense fallback={null}>
         <ambientLight intensity={0.45} />
         <directionalLight position={[5, 5, 5]} intensity={1.4} color="#22d3ee" />
         <directionalLight position={[-5, -3, 2]} intensity={1} color="#a855f7" />
         <pointLight position={[0, 3, 4]} intensity={1.2} color="#f472b6" />
         <spotLight position={[3, 4, 2]} intensity={1.5} angle={0.5} penumbra={1} color="#ffffff" />
-        <Stars radius={50} depth={50} count={1500} factor={3} fade speed={0.5} />
+        <Stars radius={50} depth={50} count={1000} factor={3} fade speed={0.5} />
         <DistortedOrb />
         <FloatingShape position={[-2.8, 1.6, 0]} color="#22d3ee" geometry="tetra" />
         <FloatingShape position={[2.6, -1.6, 0.5]} color="#a855f7" geometry="torus" />
