@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Vibrant blue / cyan gradient -->
+    <linearGradient id="dropGrad" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+
+    <!-- Glossy inner highlight gradient -->
+    <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Deep bottom reflection -->
+    <radialGradient id="depthGrad" cx="50%" cy="75%" r="45%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Soft glow filter -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Ambient droplet shadow/glow -->
+  <path
+    d="M 50 12 C 50 12, 18 52, 18 70 A 32 32 0 0 0 82 70 C 82 52, 50 12, 50 12 Z"
+    fill="#0284c7"
+    opacity="0.3"
+    filter="url(#softGlow)"
+  />
+
+  <!-- Main Droplet Body -->
+  <path
+    d="M 50 12 C 50 12, 18 52, 18 70 A 32 32 0 0 0 82 70 C 82 52, 50 12, 50 12 Z"
+    fill="url(#dropGrad)"
+  />
+
+  <!-- Inner Ambient Depth -->
+  <path
+    d="M 50 14 C 50 14, 21 53, 21 70 A 29 29 0 0 0 79 70 C 79 53, 50 14, 50 14 Z"
+    fill="url(#depthGrad)"
+  />
+
+  <!-- Glossy Highlight (Left Curve) -->
+  <path
+    d="M 47 22 C 45 27, 28 55, 28 68 C 28 77, 34 84, 43 86 C 36 83, 32 75, 32 67 C 32 55, 45 32, 47 22 Z"
+    fill="url(#shineGrad)"
+  />
+
+  <!-- Tiny Accent Sparkle / Bubble at bottom right -->
+  <circle cx="64" cy="68" r="4" fill="#ffffff" opacity="0.45" />
+  <circle cx="68" cy="62" r="2" fill="#ffffff" opacity="0.3" />
+</svg>
