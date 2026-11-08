@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import logo from "@/assets/logo.jpg";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Instagram } from "lucide-react";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -41,23 +41,25 @@ export default function Navbar() {
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-          scrolled || isOpen
-            ? "py-3 backdrop-blur-xl bg-background/60 border-b border-border"
-            : "py-6"
-        }`}
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled && !isOpen
+          ? "py-3 backdrop-blur-xl bg-background/60 border-b border-border"
+          : "py-4 md:py-6"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <a
             href="#home"
             onClick={closeMenu}
-            className="flex items-center gap-2.5 font-display font-bold text-lg tracking-tight z-50"
+            className="flex items-center gap-2.5 font-display font-bold text-lg tracking-tight z-50 group"
           >
             <img
               src={logo}
               alt="Abizar Dholkawala logo"
               className="w-9 h-9 rounded-full object-cover ring-1 ring-white/15 shadow-[0_0_18px_rgba(34,211,238,0.25)]"
             />
+            <span className="text-zinc-300 font-display font-semibold text-base md:text-lg tracking-tight group-hover:text-white transition-colors">
+              Abizar.
+            </span>
           </a>
 
           {/* Desktop Nav Items */}
@@ -126,131 +128,111 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Drawer with Wavy Fade-in / Fade-out SVG Mask + Slide */}
+      {/* Full-Screen Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-40 md:hidden flex justify-end">
-            {/* Backdrop overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.35, ease: "easeInOut" }}
-              onClick={closeMenu}
-              className="absolute inset-0 bg-background/80 backdrop-blur-md"
-            />
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{
+              duration: 0.4,
+              ease: [0.22, 1, 0.36, 1], // Smooth cubic ease-out
+            }}
+            className="fixed inset-0 z-40 md:hidden bg-background/98 backdrop-blur-3xl flex flex-col justify-between px-6 pt-24 pb-8 overflow-hidden select-none"
+          >
+            {/* Ambient neon decorative background glows */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+              <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-cyan-500/10 blur-[90px]" />
+              <div className="absolute bottom-1/4 left-0 w-64 h-64 rounded-full bg-violet-500/15 blur-[90px]" />
+            </div>
 
-            {/* Menu Panel with Wavy Curve Path */}
-            <motion.div
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1], // Smooth cubic ease-out
-              }}
-              className="relative w-[85%] max-w-sm h-full bg-card/95 border-l border-white/10 shadow-2xl flex flex-col justify-between p-8 pt-28 overflow-hidden"
-              style={{
-                backdropFilter: "blur(24px)",
-              }}
-            >
-              {/* Ambient neon decorative blobs inside drawer */}
-              <div className="absolute top-1/4 -right-20 w-52 h-52 rounded-full bg-cyan-500/10 blur-[80px] pointer-events-none" />
-              <div className="absolute bottom-1/4 -left-20 w-52 h-52 rounded-full bg-violet-500/15 blur-[80px] pointer-events-none" />
-
-              {/* Decorative Animated Wavy SVG Edge on Left Border */}
+            {/* Main Menu Body */}
+            <div className="flex-1 flex flex-col justify-center items-center max-w-md mx-auto w-full py-4">
+              {/* Role Subtitle with static site accent gradient */}
               <motion.div
-                initial={{ opacity: 0, scaleX: 0.8 }}
-                animate={{ opacity: 0.9, scaleX: 1 }}
-                exit={{ opacity: 0, scaleX: 0.8 }}
-                transition={{ duration: 0.45 }}
-                className="absolute top-0 bottom-0 -left-6 w-6 pointer-events-none overflow-hidden"
-              >
-                <svg
-                  className="w-full h-full text-card/95"
-                  viewBox="0 0 24 800"
-                  preserveAspectRatio="none"
-                  fill="currentColor"
-                >
-                  <motion.path
-                    initial={{ d: "M24,0 C24,200 24,400 24,600 C24,700 24,750 24,800 L24,800 L24,0 Z" }}
-                    animate={{ d: "M24,0 C6,180 -4,320 18,480 C32,600 8,700 24,800 L24,800 L24,0 Z" }}
-                    exit={{ d: "M24,0 C24,200 24,400 24,600 C24,700 24,750 24,800 L24,800 L24,0 Z" }}
-                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                </svg>
-              </motion.div>
-
-              {/* Top: Logo & Identity inside menu */}
-              <div>
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15, duration: 0.4 }}
-                  className="flex items-center gap-3 pb-8 mb-8 border-b border-white/10"
-                >
-                  <img
-                    src={logo}
-                    alt="Abizar Dholkawala"
-                    className="w-12 h-12 rounded-full object-cover ring-2 ring-cyan-400/40 shadow-[0_0_20px_rgba(34,211,238,0.3)]"
-                  />
-                  <div>
-                    <h3 className="font-display font-bold text-base text-foreground">
-                      Abizar Dholkawala
-                    </h3>
-                    <p className="font-mono text-xs text-foreground/50">
-                      3D & Creative Developer
-                    </p>
-                  </div>
-                </motion.div>
-
-                {/* Navigation Links with Wavy Staggered Slide */}
-                <ul className="space-y-4">
-                  {links.map((link, i) => (
-                    <motion.li
-                      key={link.href}
-                      initial={{ opacity: 0, x: 35 + Math.sin(i * 1.3) * 15 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 25 + Math.sin(i * 1.3) * 15 }}
-                      transition={{
-                        delay: 0.16 + i * 0.06,
-                        duration: 0.35,
-                        ease: [0.22, 1, 0.36, 1],
-                      }}
-                    >
-                      <a
-                        href={link.href}
-                        onClick={closeMenu}
-                        className="group flex items-center justify-between text-2xl font-display font-semibold text-foreground/80 hover:text-cyan-400 transition-colors py-2"
-                      >
-                        <span>{link.label}</span>
-                        <ArrowUpRight
-                          size={18}
-                          className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-cyan-400"
-                        />
-                      </a>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Bottom: Mobile Let's Talk CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                className="pt-6 border-t border-white/10"
+                transition={{ delay: 0.1, duration: 0.35 }}
+                className="text-center py-3 mb-10 space-y-2.5"
               >
-                <a
-                  href="#contact"
-                  onClick={closeMenu}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-cyan-400 to-violet-500 text-background font-semibold text-sm glow-neon shadow-lg active:scale-95 transition-transform"
-                >
-                  Let's talk →
-                </a>
+                <p className="font-mono text-[18px] sm:text-[19px] font-bold tracking-wider uppercase py-1 bg-gradient-to-r from-cyan-400 via-sky-300 to-violet-400 bg-clip-text text-transparent">
+                  Full Stack Developer
+                </p>
+                <p className="font-mono text-[15px] sm:text-base font-semibold tracking-wider uppercase py-1 bg-gradient-to-r from-cyan-400 via-sky-300 to-violet-400 bg-clip-text text-transparent">
+                  AI & ML Engineer
+                </p>
               </motion.div>
+
+              {/* Navigation Links - Center-aligned, No Numbering */}
+              <ul className="space-y-6 text-center w-full">
+                {links.map((link, i) => (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 15 }}
+                    transition={{
+                      delay: 0.12 + i * 0.05,
+                      duration: 0.35,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+                    <a
+                      href={link.href}
+                      onClick={closeMenu}
+                      className="inline-block text-3xl sm:text-4xl font-display font-bold text-foreground/85 hover:text-cyan-400 active:scale-95 transition-all py-1"
+                    >
+                      {link.label}
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Bottom: Mobile Let's Talk CTA & Social Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.35 }}
+              className="max-w-xs mx-auto w-full flex flex-col items-center"
+            >
+              <a
+                href="#contact"
+                onClick={closeMenu}
+                className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl bg-gradient-to-r from-cyan-400 to-violet-500 text-background font-bold text-sm sm:text-base glow-neon shadow-lg active:scale-95 transition-transform mb-8"
+              >
+                Let's talk →
+              </a>
+
+              <div className="flex items-center justify-center gap-6 text-foreground/60 font-mono text-xs pt-1">
+                <a
+                  href="https://github.com/abizardholkawala"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"
+                >
+                  <Github size={15} /> GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/abizardholkawala"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"
+                >
+                  <Linkedin size={15} /> LinkedIn
+                </a>
+                <a
+                  href="https://www.instagram.com/dholkawalaabizar"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"
+                >
+                  <Instagram size={15} /> Instagram
+                </a>
+              </div>
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>
