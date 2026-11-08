@@ -41,7 +41,7 @@ export default function About() {
       await navigator.clipboard.writeText(email);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch {}
+    } catch { }
   };
 
   return (
@@ -83,7 +83,7 @@ export default function About() {
               <Code2 className="text-primary mb-4" size={28} />
               <h3 className="text-2xl font-bold mb-3">Hi, I'm Abizar Dholkawala</h3>
               <p className="text-foreground/70 leading-relaxed">
-                2+ years of sharpening the digital edge. I build dynamic, performant software with a focus on immersive
+                3+ years of sharpening the digital edge. I build dynamic, performant software with a focus on immersive
                 UX and technical logic. Driven by high-energy innovation and a preference for tech that lasts.
               </p>
             </div>
