@@ -85,7 +85,7 @@ const githubProjects: GithubProject[] = [
     icon: FireworksIcon, // 5. Fireworks icon
   },
   {
-    title: "WorkoutTracker",
+    title: "Workout Tracker",
     desc: "A lightweight fitness tracker application for logging daily workouts, tracking personal bests, and maintaining streak progression.",
     tags: ["Fitness", "Workout Streak", "TypeScript"],
     href: "https://github.com/AbizarDholkawala/WorkoutTracker",
