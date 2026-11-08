@@ -32,8 +32,21 @@ const codeSnippet = `class Developer {
   }
 }`;
 
+// Dynamically calculate years of experience starting from Nov 8, 2023 (3+ years as of Nov 8, 2026)
+function getYearsOfExperience(): number {
+  const startDate = new Date(2023, 10, 8); // Month is 0-indexed: 10 = November
+  const now = new Date();
+  let years = now.getFullYear() - startDate.getFullYear();
+  const monthDiff = now.getMonth() - startDate.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < startDate.getDate())) {
+    years--;
+  }
+  return Math.max(3, years);
+}
+
 export default function About() {
   const [copied, setCopied] = useState(false);
+  const yearsOfExp = getYearsOfExperience();
   const email = "contactsabizar@gmail.com";
 
   const copyEmail = async () => {
@@ -83,7 +96,7 @@ export default function About() {
               <Code2 className="text-primary mb-4" size={28} />
               <h3 className="text-2xl font-bold mb-3">Hi, I'm Abizar Dholkawala</h3>
               <p className="text-foreground/70 leading-relaxed">
-                3+ years of sharpening the digital edge. I build dynamic, performant software with a focus on immersive
+                {yearsOfExp}+ years of sharpening the digital edge. I build dynamic, performant software with a focus on immersive
                 UX and technical logic. Driven by high-energy innovation and a preference for tech that lasts.
               </p>
             </div>
